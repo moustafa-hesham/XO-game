@@ -33,6 +33,14 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'lib/assets/images/logo.png',
+              height: 150,
+              width: 150,
+            ),
+            SizedBox(
+              height: 70,
+            ),
             const Center(
               child: Text(
                 'Enter Players Name',
