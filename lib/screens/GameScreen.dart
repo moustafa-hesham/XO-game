@@ -37,27 +37,30 @@ class _GameScreenState extends State<GameScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: Text(
-                  'Turn:',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: Text(
+                    'Turn:',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              Text(
-                playerTurn() ? player1Name : player2Name,
-                style: TextStyle(
-                    color: playerTurn() ? kXColor : kOColor,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold),
-              )
-            ],
+                Text(
+                  playerTurn() ? player1Name : player2Name,
+                  style: TextStyle(
+                      color: playerTurn() ? kXColor : kOColor,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
           ),
           const SizedBox(
             height: 30,
