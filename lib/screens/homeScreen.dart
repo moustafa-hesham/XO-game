@@ -27,79 +27,81 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       // appBar: AppBar(title: Text('XO Game')),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Image.asset(
-                  'lib/assets/images/logo.png',
-                  height: 150,
-                  width: 150,
-                ),
-              ),
-              SizedBox(
-                height: 70,
-              ),
-              const Center(
-                child: Text(
-                  'Enter Players Name',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Image.asset(
+                    'lib/assets/images/logo.png',
+                    height: 150,
+                    width: 150,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomFormField(
-                player: player1Controller,
-                hintText: 'Player 1',
-              ),
-              CustomFormField(
-                player: player2Controller,
-                hintText: 'Player 2',
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    Navigator.pushNamed(
-                      context,
-                      GameScreen.iD,
-                      arguments: GameBoardArguments(
-                        player1Name: player1Controller.text,
-                        player2Name: player2Controller.text,
-                      ),
-                    ).then((value) => clearForm());
-                  }
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  padding: EdgeInsets.all(18),
-                  child: Center(
-                    child: Text(
-                      'Start Game',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                SizedBox(
+                  height: 70,
+                ),
+                const Center(
+                  child: Text(
+                    'Enter Players Name',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomFormField(
+                  player: player1Controller,
+                  hintText: 'Player 1',
+                ),
+                CustomFormField(
+                  player: player2Controller,
+                  hintText: 'Player 2',
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                InkWell(
+                  onTap: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.pushNamed(
+                        context,
+                        GameScreen.iD,
+                        arguments: GameBoardArguments(
+                          player1Name: player1Controller.text,
+                          player2Name: player2Controller.text,
+                        ),
+                      ).then((value) => clearForm());
+                    }
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    padding: EdgeInsets.all(18),
+                    child: Center(
+                      child: Text(
+                        'Start Game',
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
